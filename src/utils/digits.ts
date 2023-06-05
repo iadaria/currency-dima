@@ -1,0 +1,1 @@
+export const round = (digit: number) => Number(digit.toFixed(3))

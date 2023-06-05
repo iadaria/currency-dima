@@ -1,10 +1,9 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,6 +23,16 @@
   color: white;
 }
 
+.item {
+  padding: 10px;
+  margin: 0;
+  font-size: calc(3px + 1.4vmin)
+}
+
+.date {
+  font-size: calc(2px + 1.4vmin);
+  color: gray;
+}
 .App-link {
   color: #61dafb;
 }
