@@ -26,11 +26,9 @@
 .item {
   padding: 10px;
   margin: 0;
-  font-size: calc(3px + 1.4vmin)
 }
 
 .date {
-  font-size: calc(2px + 1.4vmin);
   color: gray;
 }
 .App-link {

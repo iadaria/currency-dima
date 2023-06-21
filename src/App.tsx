@@ -1,6 +1,6 @@
 import {round} from './utils/digits';
-import './App.css';
 import {ITEMS} from './data/crypto';
+import './App.css';
 
 function App() {
   return (

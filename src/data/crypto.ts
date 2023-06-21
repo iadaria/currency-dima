@@ -3,7 +3,8 @@ import { round } from "../utils/digits";
 export enum COIN {
   USDT = 'USDT',
   ADA = 'ADA',
-  LDO = 'LDO'
+  LDO = 'LDO',
+  CFX = 'CFX',
 }
 
 type Item = {
@@ -37,5 +38,15 @@ export const ITEMS: Item[] = [
     inUsdt: 0,
     boughtPerUnit: (2.235 + 2.220 + 2.216)/3,
     soldPerUnit: 1.987,
+  },
+  {
+    coin: COIN.CFX,
+    count: 9630,
+    boughtDate: new Date('2023-06-19'),
+    soldDate: null,
+    fixed: false,
+    inUsdt: 1744,
+    boughtPerUnit: 0.1812,
+    soldPerUnit: 0,
   },
 ];
