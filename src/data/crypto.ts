@@ -16,6 +16,7 @@ type Item = {
   inUsdt: number,
   boughtPerUnit: number,
   soldPerUnit: number,
+  isBNBComission: boolean,
 };
 
 export const ITEMS: Item[] = [
@@ -28,6 +29,7 @@ export const ITEMS: Item[] = [
     inUsdt: 1043,
     boughtPerUnit: 1,
     soldPerUnit: 1,
+    isBNBComission: false,
   },
   {
     coin: COIN.LDO,
@@ -38,6 +40,7 @@ export const ITEMS: Item[] = [
     inUsdt: 0,
     boughtPerUnit: (2.235 + 2.220 + 2.216)/3,
     soldPerUnit: 1.987,
+    isBNBComission: false,
   },
   {
     coin: COIN.CFX,
@@ -48,5 +51,6 @@ export const ITEMS: Item[] = [
     inUsdt: 1744,
     boughtPerUnit: 0.1812,
     soldPerUnit: 0,
+    isBNBComission: true,
   },
 ];

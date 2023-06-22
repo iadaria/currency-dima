@@ -1,6 +1,8 @@
-import {round} from './utils/digits';
+import {calcBuyingCost, calcSellingCost, round} from './utils/digits';
 import {ITEMS} from './data/crypto';
 import './App.css';
+import {formattedDate} from './utils/date';
+import { FixedTitle } from './components/FixedTitle';
 
 function App() {
   return (
@@ -16,29 +18,22 @@ function App() {
           inUsdt,
           boughtPerUnit,
           soldPerUnit,
+          isBNBComission,
         }) => {
-          
+          const boughtDateFormated = formattedDate(boughtDate);
+          const soldDateFormated = formattedDate(soldDate);
 
-          const boughtDateFormated = boughtDate
-            ? `${boughtDate.getDate()}-${
-                boughtDate.getMonth() + 1
-              }-${boughtDate.getFullYear()}`
-            : '';
-          const soldDateFormated =
-            fixed && soldDate
-              ? `${soldDate.getDate()}-${
-                  soldDate.getMonth() + 1
-                }-${soldDate.getFullYear()}`
-              : '';
-          let comission = count * boughtPerUnit * 0.01;
-          const boughtCost = round(count * boughtPerUnit + comission);
-
-          comission = count * soldPerUnit * 0.01;
-          const soldCost = round(count * soldPerUnit - comission);
+          const boughtCost = calcBuyingCost(
+            count,
+            boughtPerUnit,
+            isBNBComission
+          );
+          const soldCost = calcSellingCost(count, soldPerUnit, isBNBComission);
+          const result = fixed ? round(soldCost - boughtCost) : null;
 
           return (
-
             <p className="item">
+              <FixedTitle fixed={fixed} />
               <span className="date">Покупка {boughtDateFormated}: </span>
               <span>
                 {count} {coin} * {round(boughtPerUnit)} usdt = {boughtCost} usdt
@@ -47,12 +42,12 @@ function App() {
               {fixed && (
                 <>
                   <br />
-                  <span className="date">Покупка {soldDateFormated}: </span>
+                  <span className="date">Продажа {soldDateFormated}: </span>
                   <span>
                     {count} {coin} * {round(soldPerUnit)} usdt = {soldCost} usdt
                   </span>
                   <br />
-                  <span>Итого: {round(soldCost - boughtCost)} usdt</span>
+                  <span>Итого: {result} usdt</span>
                 </>
               )}
             </p>
