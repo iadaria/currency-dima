@@ -7,7 +7,7 @@ export enum COIN {
   CFX = 'CFX',
 }
 
-type Item = {
+export type Item = {
   coin: COIN,
   count: number,
   boughtDate: null | Date,

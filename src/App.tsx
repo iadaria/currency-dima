@@ -2,58 +2,27 @@ import {calcBuyingCost, calcSellingCost, round} from './utils/digits';
 import {ITEMS} from './data/crypto';
 import './App.css';
 import {formattedDate} from './utils/date';
-import { FixedTitle } from './components/FixedTitle';
+import {FixedTitle} from './components/FixedTitle';
+import {Purchase} from './components/Purchase';
+import {Fixed} from './components/Fixed';
+import { Result } from './components/Result';
 
 function App() {
   return (
     <div className="App">
-      <p className="item">Все приблизительно, не получается в цифры уложится</p>
-      {ITEMS.map(
-        ({
-          boughtDate,
-          soldDate,
-          count,
-          coin,
-          fixed,
-          inUsdt,
-          boughtPerUnit,
-          soldPerUnit,
-          isBNBComission,
-        }) => {
-          const boughtDateFormated = formattedDate(boughtDate);
-          const soldDateFormated = formattedDate(soldDate);
-
-          const boughtCost = calcBuyingCost(
-            count,
-            boughtPerUnit,
-            isBNBComission
-          );
-          const soldCost = calcSellingCost(count, soldPerUnit, isBNBComission);
-          const result = fixed ? round(soldCost - boughtCost) : null;
-
-          return (
-            <p className="item">
-              <FixedTitle fixed={fixed} />
-              <span className="date">Покупка {boughtDateFormated}: </span>
-              <span>
-                {count} {coin} * {round(boughtPerUnit)} usdt = {boughtCost} usdt
-              </span>
-
-              {fixed && (
-                <>
-                  <br />
-                  <span className="date">Продажа {soldDateFormated}: </span>
-                  <span>
-                    {count} {coin} * {round(soldPerUnit)} usdt = {soldCost} usdt
-                  </span>
-                  <br />
-                  <span>Итого: {result} usdt</span>
-                </>
-              )}
-            </p>
-          );
-        }
-      )}
+      <p className="item">
+        Все приблизительно, не получается точно до цента в цифры уложиться
+      </p>
+      {ITEMS.map((item) => {
+        return (
+          <p className="item">
+            <FixedTitle fixed={item.fixed} />
+            <Purchase item={item} />
+            <Fixed item={item} />
+            <Result item={item} />
+          </p>
+        );
+      })}
     </div>
   );
 }
