@@ -1,7 +1,7 @@
 export enum COIN {
-  LDO = 'ldo',
-  CFX = 'cfx',
-  FLOKI = 'floki',
+  LDO = 'LDO',
+  CFX = 'CFX',
+  FLOKI = 'FLOKI',
 }
 
 export enum STATE {
@@ -98,11 +98,12 @@ export type Deal = {
   inUsdt: number,
   perUnit: number,
   isBNBComission: boolean,
+  isNew?: boolean,
 };
 
 export const Translate = {
-  [STATE.BOUGHT]: 'Покупка',
-  [STATE.SOLD]: 'Продажа',
+  [STATE.BOUGHT]: '->Покупка',
+  [STATE.SOLD]: '<-Продажа',
 };
 
 export const DEALS: Deal[] = [
@@ -149,6 +150,15 @@ export const DEALS: Deal[] = [
     date: new Date('2023-06-22'),
     inUsdt: 5005,
     perUnit: 0.2530,
-    isBNBComission: false,
+    isBNBComission: true,
   },
+/*   {
+    state: STATE.SOLD,
+    coin: COIN.CFX,
+    count: 11,
+    date: new Date('2023-06-21'),
+    inUsdt: 11,
+    perUnit: 0.2530,
+    isBNBComission: true,
+  }, */
 ]

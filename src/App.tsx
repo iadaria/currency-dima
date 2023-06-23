@@ -1,9 +1,11 @@
 import {COIN, DEALS, Deal, STATE, Translate} from './data/crypto';
 import {
   calcBuyingCost,
+  calcOutcome,
   calcSellingCost,
+  countOfCoin,
+  round,
   sortByDate,
-  sortByPricePerUnit,
 } from './utils/digits';
 import {formattedDate} from './utils/date';
 import './App.css';
@@ -37,38 +39,33 @@ const DealsByCoin = () => {
     const dealsElement = deals
       .sort(sortByDate)
       .map((deal) => <DealItem deal={deal} />);
-    // count
-    const totalCount = deals.reduce((sum, current, currentIndex) => {
-      const deal = deals[currentIndex];
-      return deal.state === STATE.BOUGHT ? sum + deal.count : sum - deal.count;
-    }, 0);
-    // money
-    const boughts = deals
-      .filter((deal) => deal.state === STATE.BOUGHT)
-      .sort(sortByPricePerUnit);
+
+    // solds
     const solds = deals.filter((deal) => deal.state === STATE.SOLD);
-    console.log(solds)
     const totalSolds = solds.reduce(
-      (sum, current, idx) =>
-        sum + calcSellingCost(deals[idx].count, deals[idx].perUnit, deals[idx].isBNBComission),
-      0
-    );
-    const total = boughts.reduce((sum, current, currentIndex) => {
-      return 0;
-    }, 0);
+      (sum, deal) => sum + calcSellingCost(deal.count, deal.perUnit, deal.isBNBComission)
+      ,0);
+    const countSolds = solds.reduce((sum, deal) => sum + deal.count,0);
+    const outcome = round(calcOutcome(coin));
+    const sign = outcome > 0 ? '+' : outcome < 0 ? '-'  : '';
+
     // show
     return (
       <p className="item">
-        {coin}
+        <span className='coin'>{coin}</span>
         <br />
         {dealsElement}
         <br />
         <span>
-          Осталось {coin}: {totalCount} шт.
+          Продано {coin} {countSolds} шт.: {totalSolds} usdt
         </span>
         <br />
         <span>
-          Продано {coin}: {totalSolds}
+          Итого: {sign}{outcome}
+        </span>
+        <br />
+        <span>
+          Осталось {coin}: {countOfCoin(coin)} шт.
         </span>
       </p>
     );
