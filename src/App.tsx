@@ -47,13 +47,12 @@ const DealsByCoin = () => {
       ,0);
     const countSolds = solds.reduce((sum, deal) => sum + deal.count,0);
     const outcome = round(calcOutcome(coin));
-    const sign = outcome > 0 ? '+' : outcome < 0 ? '-'  : '';
+    const sign = outcome > 0 ? '+' : outcome < 0 ? ''  : '';
 
     // show
     return (
       <p className="item">
         <span className='coin'>{coin}</span>
-        <br />
         {dealsElement}
         <br />
         <span>
@@ -83,13 +82,3 @@ function App() {
 }
 
 export default App;
-
-/* {ITEMS.map((item) => 
-    <p className="item">
-      <FixedTitle fixed={item.fixed} />
-      <Purchase item={item} />
-      <Fixed item={item} />
-      <Result item={item} />
-    </p>
-)}
-*/
