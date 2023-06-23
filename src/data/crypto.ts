@@ -77,6 +77,15 @@ export const DEALS: Deal[] = [
   {
     state: STATE.BOUGHT,
     coin: COIN.CFX,
+    count: 21793,
+    date: new Date('2023-03-26'),
+    inUsdt: 6612,
+    perUnit: 0.3038,
+    isBNBComission: false,
+  },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.CFX,
     count: 12587,
     date: new Date('2023-05-27'),
     inUsdt: 3880,
