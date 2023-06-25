@@ -22,14 +22,14 @@ export const DealItem = ({deal}: {deal: Deal}) => {
   );
 
   return (
-    <p>
+    <div>
       <span className="date">
         {state} {boughtDate}:{' '}
       </span>
       <span>
         {deal.count} {deal.coin} * {roundN(deal.perUnit, 3)}= {boughtCost} usdt
       </span>
-    </p>
+    </div>
   );
 };
 
@@ -54,7 +54,7 @@ const DealsByCoin = () => {
 
     // show
     return (
-      <p className="item">
+      <div className="item">
         <span className='coin'>{coin}</span>
         {dealsElement}
         <br />
@@ -69,7 +69,7 @@ const DealsByCoin = () => {
         <span>
           Осталось {coin}: {countOfCoin(coin)} шт.
         </span>
-      </p>
+      </div>
     );
   });
 

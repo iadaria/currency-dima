@@ -9,6 +9,7 @@ export enum COIN {
   LDO = 'ldo',
   TRX = 'trx',
   BTC = 'btc',
+  CAKE = 'cake',
   CFX = 'cfx',
   FLOKI = 'floki',
 }

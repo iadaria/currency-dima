@@ -10,28 +10,28 @@ export const CFXS: Deal[] = [
     perUnit: 0.3038,
     isBNBComission: false,
   },
-/*   {
-    state: STATE.SOLD,
+  {
+    state: STATE.BOUGHT,
     coin: COIN.CFX,
-    count: 22634,
-    date: new Date('2023-04-12'),
-    inUsdt: 8942,
-    perUnit: 0.39492,
+    count: 2770,
+    date: new Date('2023-04-04'),
+    inUsdt: 1752,
+    perUnit: 0.36724,
     isBNBComission: false,
-    comission: 8.6,
+    comission: 4.7 * 0.38609,
     Market: Market.Okx
   },
   {
     state: STATE.BOUGHT,
     coin: COIN.CFX,
-    count: 22634,
-    date: new Date('2023-04-12'),
-    inUsdt: 8749,
-    perUnit: 0.38609,
+    count: 4770,
+    date: new Date('2023-04-04'),
+    inUsdt: 1752,
+    perUnit: 0.36724,
     isBNBComission: false,
-    comission: 18.466 * 0.38609,
+    comission: 4.7 * 0.38609,
     Market: Market.Okx
-  }, */
+  },
   {
     state: STATE.BOUGHT,
     coin: COIN.CFX,
