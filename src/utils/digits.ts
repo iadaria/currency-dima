@@ -77,19 +77,23 @@ export const newBoughtsByCoin = (coin: COIN) => {
   const uniq = (buy: Deal) =>
     !newPurchases.some((p) => p.count === buy.count && p.date === buy.date);
 
-  soldsByCoin(coin)
-    .filter((s) => !s.fixed)
+  const solds = soldsByCoin(coin);
+  const boughts = boughtsByCoin(coin);
+
+  if (!solds.length) {
+    return [boughts, []];
+  }
+
+  solds
+    .filter((sold) => !sold.fixed)
     .forEach((sold, index) => {
       let sale: Deal | null = sold;
-      boughtsByCoin(coin)
-        .filter((b) => !b.fixed)
+      boughts.filter((buy) => !buy.fixed)
         .filter(uniq) // фильтруем то, что уже отработали с предыдущим sale
         .forEach((buy) => {
           if (!sale) {
             // Если отработали уже все Продажи, то просто копируем Покупки
-            if (index >= soldsByCoin(coin).length - 1) {
-              newPurchases.push(buy);
-            }
+            newPurchases.push(buy);
           } else {
             if (sale.count > buy.count) {
               // разбиваем один элемент Продажи на две Продажи
@@ -115,17 +119,17 @@ export const newBoughtsByCoin = (coin: COIN) => {
           }
         });
     });
-  newSales.push(...soldsByCoin(coin).filter(s => s.fixed));
-  newPurchases.push(...boughtsByCoin(coin).filter(s => s.fixed));
+  //newSales.push(...solds.filter(s => s.fixed));
+  //newPurchases.push(...boughts.filter(s => s.fixed));
   return [newPurchases, newSales];
 };
 
 export const calcOutcome = (coin: COIN) => {
   const [boughts, solds] = newBoughtsByCoin(coin);
-  if (coin === COIN.CFX) {
-    console.log(boughts);
-    console.log(solds);
-  }
+  // if (coin === COIN.CFX) {
+  //   console.log(boughts);
+  //   console.log(solds);
+  // }
   return solds.reduce((sum, sold) => {
     // находим соответствующую покупку
     const buy = boughts.find(
@@ -139,5 +143,23 @@ export const calcOutcome = (coin: COIN) => {
       (calcSellingCost(sold.count, sold.perUnit, sold.isBNBComission) -
         calcBuyingCost(buy.count, buy.perUnit, buy.isBNBComission))
     );
+  }, 0);
+};
+
+export const calcSpent = (coin: COIN) => {
+  const [boughts, solds] = newBoughtsByCoin(coin);
+  if (coin === COIN.CFX) {
+    console.log('$calPlanOutcome: ' + coin, { boughts, solds });
+  }
+  return boughts.reduce((sum, buy) => {
+    // находим соответствующую покупку
+    const sold = solds.find(
+      (sale) => buy.count === sale.count && buy.date <= sale.date
+    );
+    if (sold) {
+      return sum;
+    }
+   
+    return sum + calcBuyingCost(buy.count, buy.perUnit, buy.isBNBComission);
   }, 0);
 };

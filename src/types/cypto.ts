@@ -19,6 +19,16 @@ export enum STATE {
   BOUGHT,
 }
 
+export const Rates: { [key: string]: number} = {
+  [COIN.BTC]: 0,
+  [COIN.CAKE]:0,
+  [COIN.CFX]: 0,
+  [COIN.FLOKI]: 0,
+  [COIN.ADA]: 0,
+  [COIN.LDO]: 0,
+  [COIN.TRX]: 0,
+};
+
 export type Item = {
   coin: COIN,
   count: number,
