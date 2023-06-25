@@ -15,4 +15,4 @@ export const DEALS: Deal[] = [
    ...CFXS,
    ...FLOKIS,
    ...LDOS,
-]
+];

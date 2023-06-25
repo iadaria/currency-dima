@@ -1,6 +1,5 @@
-import { DEALS } from "../data/crypto";
-import { COIN, Deal, STATE } from "../types/cypto";
-
+import {DEALS} from '../data/crypto';
+import {COIN, Deal, STATE} from '../types/cypto';
 
 const USDT_COMISSION = 0.1 / 100;
 const BNB_COMISSION = 0.075 / 100;
@@ -78,55 +77,62 @@ export const newBoughtsByCoin = (coin: COIN) => {
   const uniq = (buy: Deal) =>
     !newPurchases.some((p) => p.count === buy.count && p.date === buy.date);
 
-  soldsByCoin(coin).forEach((sold, index) => {
-    let sale: Deal | null = sold;
-    boughtsByCoin(coin)
-      .filter(uniq) // фильтруем то, что уже отработали с предыдущим sale
-      .forEach((buy) => {
-        if (!sale) {
-          // Если отработали уже все Продажи, то просто копируем Покупки
-          if (index >= soldsByCoin(coin).length - 1) {
-            newPurchases.push(buy);
+  soldsByCoin(coin)
+    .filter((s) => !s.fixed)
+    .forEach((sold, index) => {
+      let sale: Deal | null = sold;
+      boughtsByCoin(coin)
+        .filter((b) => !b.fixed)
+        .filter(uniq) // фильтруем то, что уже отработали с предыдущим sale
+        .forEach((buy) => {
+          if (!sale) {
+            // Если отработали уже все Продажи, то просто копируем Покупки
+            if (index >= soldsByCoin(coin).length - 1) {
+              newPurchases.push(buy);
+            }
+          } else {
+            if (sale.count > buy.count) {
+              // разбиваем один элемент Продажи на две Продажи
+              newSales.push({...sale, count: buy.count});
+              sale = {...sale, count: sale.count - buy.count};
+              // элемент Покупки тот же
+              newPurchases.push(buy);
+              // теперь новый элемент для отслеживания
+            }
+            if (sale.count < buy.count) {
+              // разбиваем один элемент Покупки на две Покупки
+              newPurchases.push({...buy, count: sale.count});
+              newPurchases.push({...buy, count: buy.count - sale.count});
+              // элмент Продажи тот же
+              newSales.push(sale);
+              // обновляем текущую Продажу для работы
+              sale = null;
+            }
+            if (sale && sale.count === buy.count) {
+              newSales.push(sale);
+              newPurchases.push(buy);
+            }
           }
-        } else {
-          if (sale.count > buy.count) {
-            // разбиваем один элемент Продажи на две Продажи
-            newSales.push({...sale, count: buy.count});
-            sale = {...sale, count: sale.count - buy.count};
-            // элемент Покупки тот же
-            newPurchases.push(buy);
-            // теперь новый элемент для отслеживания
-          }
-          if (sale.count < buy.count) {
-            // разбиваем один элемент Покупки на две Покупки
-            newPurchases.push({...buy, count: sale.count});
-            newPurchases.push({...buy, count: buy.count - sale.count});
-            // элмент Продажи тот же
-            newSales.push(sale);
-            // обновляем текущую Продажу для работы
-            sale = null;
-          }
-          if (sale && sale.count === buy.count) {
-            newSales.push(sale);
-            newPurchases.push(buy);
-          }
-        }
-      });
-  });
+        });
+    });
+  newSales.push(...soldsByCoin(coin).filter(s => s.fixed));
+  newPurchases.push(...boughtsByCoin(coin).filter(s => s.fixed));
   return [newPurchases, newSales];
 };
 
 export const calcOutcome = (coin: COIN) => {
   const [boughts, solds] = newBoughtsByCoin(coin);
-  console.log(boughts);
-  console.log(solds);
+  if (coin === COIN.CFX) {
+    console.log(boughts);
+    console.log(solds);
+  }
   return solds.reduce((sum, sold) => {
     // находим соответствующую покупку
     const buy = boughts.find(
       (buy) => buy.count === sold.count && buy.date <= sold.date
     );
     if (!buy) {
-      throw Error('Не найдена, соответствующая продаже, покупка');
+      throw Error('Не найдена, соответствующая продаже, покупка ' + JSON.stringify(sold),);
     }
     return (
       sum +

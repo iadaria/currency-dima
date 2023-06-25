@@ -41,7 +41,8 @@ export type Deal = {
   perUnit: number,
   isBNBComission: boolean,
   comission?: number,
-  Market?: Market
+  Market?: Market,
+  fixed?: boolean,
 };
 
 export const Translate = {
