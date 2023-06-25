@@ -1,14 +1,16 @@
-import {COIN, DEALS, Deal, STATE, Translate} from './data/crypto';
+import {DEALS} from './data/crypto';
 import {
   calcBuyingCost,
   calcOutcome,
   calcSellingCost,
   countOfCoin,
   round,
+  roundN,
   sortByDate,
 } from './utils/digits';
 import {formattedDate} from './utils/date';
 import './App.css';
+import { COIN, Deal, STATE, Translate } from './types/cypto';
 
 export const DealItem = ({deal}: {deal: Deal}) => {
   const boughtDate = formattedDate(deal.date);
@@ -25,7 +27,7 @@ export const DealItem = ({deal}: {deal: Deal}) => {
         {state} {boughtDate}:{' '}
       </span>
       <span>
-        {deal.count} {deal.coin} * {deal.perUnit}= {boughtCost} usdt
+        {deal.count} {deal.coin} * {roundN(deal.perUnit, 3)}= {boughtCost} usdt
       </span>
     </p>
   );
@@ -48,6 +50,7 @@ const DealsByCoin = () => {
     const countSolds = solds.reduce((sum, deal) => sum + deal.count,0);
     const outcome = round(calcOutcome(coin));
     const sign = outcome > 0 ? '+' : outcome < 0 ? ''  : '';
+    const color = outcome > 0 ? 'green' : outcome < 0 ? 'red'  : '';
 
     // show
     return (
@@ -59,8 +62,8 @@ const DealsByCoin = () => {
           Продано {coin} {countSolds} шт.: {totalSolds} usdt
         </span>
         <br />
-        <span>
-          Итого: {sign}{outcome}
+        <span style={{color}}>
+          Итого: {sign}{outcome} usdt
         </span>
         <br />
         <span>

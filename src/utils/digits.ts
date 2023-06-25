@@ -1,4 +1,6 @@
-import {COIN, DEALS, Deal, STATE} from '../data/crypto';
+import { DEALS } from "../data/crypto";
+import { COIN, Deal, STATE } from "../types/cypto";
+
 
 const USDT_COMISSION = 0.1 / 100;
 const BNB_COMISSION = 0.075 / 100;

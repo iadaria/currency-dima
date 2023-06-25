@@ -1,4 +1,5 @@
-import {Item} from '../data/crypto';
+
+import { Item } from '../types/cypto';
 import { formattedDate } from '../utils/date';
 import {calcSellingCost, round} from '../utils/digits';
 

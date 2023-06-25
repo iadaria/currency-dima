@@ -1,4 +1,4 @@
-import {Item} from '../data/crypto';
+import { Item } from '../types/cypto';
 import {calcBuyingCost, calcSellingCost, round} from '../utils/digits';
 
 interface Props {
