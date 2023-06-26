@@ -148,9 +148,9 @@ export const calcOutcome = (coin: COIN) => {
 
 export const calcSpent = (coin: COIN) => {
   const [boughts, solds] = newBoughtsByCoin(coin);
-  if (coin === COIN.CFX) {
+  /* if (coin === COIN.CFX) {
     console.log('$calPlanOutcome: ' + coin, { boughts, solds });
-  }
+  } */
   return boughts.reduce((sum, buy) => {
     // находим соответствующую покупку
     const sold = solds.find(

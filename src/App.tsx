@@ -42,10 +42,8 @@ interface DealsByCoinProps {
 
 const DealsByCoin = ({ prices }: DealsByCoinProps) => {
   const coins = Object.values(COIN);
-
   
   const result = coins.map((coin, index) => {
-    console.log({ [coin]: prices[coin] });
     const rate = prices[coin];
     const deals = DEALS.filter((deal) => deal.coin === coin);
     const dealsElement = deals
@@ -95,7 +93,7 @@ function App() {
   const [prices, setPrices] = useState(Rates);
 
   useEffect(() => {
-   //updateRates().then(rates => setPrices(rates));
+    updateRates().then(rates => setPrices(rates));
   }, []);
 
   return (
