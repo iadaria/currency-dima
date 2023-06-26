@@ -75,8 +75,9 @@ const DealsByCoin = ({ prices }: DealsByCoinProps) => {
           Продано {coin} {countSolds} шт.: {totalSolds} $
         </span>
         <br />
-        <span style={{color}}>
-          Итого: {sign}{outcome}$ (Потрачено: {spent$}$, ~итог: {planOutcome$}$)
+        <span>
+          Итого: {sign}{outcome}$ 
+          {outcomeIn$ > 50 && `(Вложено: ${spent$}$, ~ ${planOutcome$}$)`}
         </span>
         <br />
         <span>
