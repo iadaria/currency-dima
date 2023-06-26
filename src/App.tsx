@@ -11,9 +11,9 @@ import {
 } from './utils/digits';
 import {formattedDate} from './utils/date';
 import './App.css';
-import { COIN, Deal, Rates, STATE, Translate } from './types/cypto';
-import { useEffect, useState } from 'react';
-import { updateRates } from './utils/requests';
+import {COIN, Deal, Rates, STATE, Translate} from './types/cypto';
+import {useEffect, useState} from 'react';
+import {updateRates} from './utils/requests';
 
 export const DealItem = ({deal}: {deal: Deal}) => {
   const boughtDate = formattedDate(deal.date);
@@ -37,12 +37,12 @@ export const DealItem = ({deal}: {deal: Deal}) => {
 };
 
 interface DealsByCoinProps {
-  prices: { [key: string]: number; };
+  prices: {[key: string]: number};
 }
 
-const DealsByCoin = ({ prices }: DealsByCoinProps) => {
+const DealsByCoin = ({prices}: DealsByCoinProps) => {
   const coins = Object.values(COIN);
-  
+
   const result = coins.map((coin, index) => {
     const rate = prices[coin];
     const deals = DEALS.filter((deal) => deal.coin === coin);
@@ -53,22 +53,24 @@ const DealsByCoin = ({ prices }: DealsByCoinProps) => {
     // solds
     const solds = deals.filter((deal) => deal.state === STATE.SOLD);
     const totalSolds = solds.reduce(
-      (sum, deal) => sum + calcSellingCost(deal.count, deal.perUnit, deal.isBNBComission)
-      ,0);
-    const countSolds = solds.reduce((sum, deal) => sum + deal.count,0);
+      (sum, deal) =>
+        sum + calcSellingCost(deal.count, deal.perUnit, deal.isBNBComission),
+      0
+    );
+    const countSolds = solds.reduce((sum, deal) => sum + deal.count, 0);
     // outcome
     const outcome = round(calcOutcome(coin));
     const outcomeIn$ = round(countOfCoin(coin) * rate);
-    const sign = outcome > 0 ? '+' : outcome < 0 ? ''  : '';
-    const color = outcome > 0 ? 'green' : outcome < 0 ? 'red'  : '';
+    const sign = outcome > 0 ? '+' : outcome < 0 ? '' : '';
+    const color = outcome > 0 ? 'green' : outcome < 0 ? 'red' : '';
     const spent$ = round(calcSpent(coin));
     const planOutcome$ = round(outcomeIn$ - spent$);
 
     // show
     return (
       <div key={`item-${index}`} className="item">
-        <span className='coin'>{coin}</span>
-        <span> (текущий курс {round(rate * 1)}$)</span>
+        <span className="coin">{coin}</span>
+        <span> (текущий курс {roundN(rate * 1, 5)}$)</span>
         {dealsElement}
         <br />
         <span>
@@ -76,7 +78,8 @@ const DealsByCoin = ({ prices }: DealsByCoinProps) => {
         </span>
         <br />
         <span>
-          Итого: {sign}{outcome}$ 
+          Зафиксили: {sign}
+          {outcome}$
           {outcomeIn$ > 50 && `(Вложено: ${spent$}$, ~ ${planOutcome$}$)`}
         </span>
         <br />
@@ -93,8 +96,14 @@ const DealsByCoin = ({ prices }: DealsByCoinProps) => {
 function App() {
   const [prices, setPrices] = useState(Rates);
 
+  const fetchRates = () =>
+    updateRates()
+      .then((rates) => setPrices(rates))
+      .catch(console.log);
+
   useEffect(() => {
-    updateRates().then(rates => setPrices(rates));
+    fetchRates();
+    setInterval(fetchRates, 30000);
   }, []);
 
   return (
