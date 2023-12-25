@@ -1,7 +1,7 @@
-import { COIN, Deal, Market, STATE } from "../types/cypto";
+import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const TRXS: Deal[] = [
-  {
+  /*   {
     state: STATE.SOLD,
     coin: COIN.TRX,
     count: 67697,
@@ -33,5 +33,5 @@ export const TRXS: Deal[] = [
     isBNBComission: false,
     comission: 0.728 * 0.06617,
     Market: Market.Okx
-  },
+  }, */
 ];

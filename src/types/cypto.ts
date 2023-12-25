@@ -5,10 +5,10 @@ export enum Market {
 }
 
 export enum COIN {
-  ADA = 'ada',
-  LDO = 'ldo',
-  TRX = 'trx',
-  BTC = 'btc',
+  //ADA = 'ada',
+  //LDO = 'ldo',
+  //TRX = 'trx',
+  //BTC = 'btc',
   CAKE = 'cake',
   CFX = 'cfx',
   FLOKI = 'floki',
@@ -22,13 +22,13 @@ export enum STATE {
 }
 
 export const Rates: {[key: string]: number} = {
-  [COIN.BTC]: 0,
+  //[COIN.BTC]: 0,
   [COIN.CAKE]: 0,
   [COIN.CFX]: 0,
   [COIN.FLOKI]: 0,
-  [COIN.ADA]: 0,
-  [COIN.LDO]: 0,
-  [COIN.TRX]: 0,
+  //[COIN.ADA]: 0,
+  //[COIN.LDO]: 0,
+  //[COIN.TRX]: 0,
   [COIN.DOGE]: 0,
   [COIN.FIL]: 0,
 };
