@@ -12,6 +12,8 @@ export enum COIN {
   CAKE = 'cake',
   CFX = 'cfx',
   FLOKI = 'floki',
+  DOGE = 'doge',
+  FIL = 'fil',
 }
 
 export enum STATE {
@@ -19,40 +21,42 @@ export enum STATE {
   BOUGHT,
 }
 
-export const Rates: { [key: string]: number} = {
+export const Rates: {[key: string]: number} = {
   [COIN.BTC]: 0,
-  [COIN.CAKE]:0,
+  [COIN.CAKE]: 0,
   [COIN.CFX]: 0,
   [COIN.FLOKI]: 0,
   [COIN.ADA]: 0,
   [COIN.LDO]: 0,
   [COIN.TRX]: 0,
+  [COIN.DOGE]: 0,
+  [COIN.FIL]: 0,
 };
 
 export type Item = {
-  coin: COIN,
-  count: number,
-  boughtDate: null | Date,
-  soldDate: null | Date,
-  fixed: boolean,
-  inUsdt: number,
-  boughtPerUnit: number,
-  soldPerUnit: number,
-  isBNBComission: boolean,
-  comission?: number,
+  coin: COIN;
+  count: number;
+  boughtDate: null | Date;
+  soldDate: null | Date;
+  fixed: boolean;
+  inUsdt: number;
+  boughtPerUnit: number;
+  soldPerUnit: number;
+  isBNBComission: boolean;
+  comission?: number;
 };
 
 export type Deal = {
-  state: STATE,
-  coin: COIN,
-  count: number,
-  date: Date,
-  inUsdt: number,
-  perUnit: number,
-  isBNBComission: boolean,
-  comission?: number,
-  Market?: Market,
-  fixed?: boolean,
+  state: STATE;
+  coin: COIN;
+  count: number;
+  date: Date;
+  inUsdt: number;
+  perUnit: number;
+  isBNBComission: boolean;
+  comission?: number;
+  Market?: Market;
+  fixed?: boolean;
 };
 
 export const Translate = {

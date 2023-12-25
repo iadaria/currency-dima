@@ -65,6 +65,7 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
     const color = outcome > 0 ? 'green' : outcome < 0 ? 'red' : '';
     const spent$ = round(calcSpent(coin));
     const planOutcome$ = round(outcomeIn$ - spent$);
+    const s = planOutcome$ > 0 ? '+' : '';
 
     // show
     return (
@@ -73,19 +74,25 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         <span> (текущий курс {roundN(rate * 1, 5)}$)</span>
         {dealsElement}
         <br />
-        <span>
+        {/* <span>
           Продано {coin} {countSolds} шт.: {totalSolds} $
-        </span>
-        <br />
+        </span> */}
+        {/* <br /> */}
         <span>
           Зафиксили: {sign}
           {outcome}$
-          {outcomeIn$ > 50 && `(Вложено: ${spent$}$, ~ ${planOutcome$}$)`}
+          {outcomeIn$ > 50 &&
+            `(Вложено: ${spent$}$, заработок: ${s}${planOutcome$}$)`}
         </span>
         <br />
         <span>
           Осталось {coin}: {countOfCoin(coin)} шт. (~ {outcomeIn$} $)
         </span>
+        <br />
+        {/* <p>
+          04.08.23 Продажа cfx на 20 usdt и покупка 258 trx для комиссии на
+          перевод tron
+        </p> */}
       </div>
     );
   });
@@ -103,7 +110,7 @@ function App() {
 
   useEffect(() => {
     fetchRates();
-    setInterval(fetchRates, 30000);
+    setInterval(fetchRates, 80000);
   }, []);
 
   return (
