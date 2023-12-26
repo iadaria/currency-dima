@@ -73,7 +73,7 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         <span className="coin">{coin}</span>
         <span> (текущий курс {roundN(rate * 1, 5)}$)</span>
         {dealsElement}
-        <br />
+        {/* <br /> */}
         {/* <span>
           Продано {coin} {countSolds} шт.: {totalSolds} $
         </span> */}

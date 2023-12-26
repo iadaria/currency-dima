@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
-/* export const BTCS: Deal[] = [
-{
+export const BTCS: Deal[] = [
+  /* {
   state: STATE.BOUGHT,
   coin: COIN.BTC,
   count: 0.2902526,
@@ -22,5 +22,5 @@ import {COIN, Deal, Market, STATE} from '../types/cypto';
   isBNBComission: false,
   comission: 8.7,
   Market: Market.Okx,
-},
-]; */
+}, */
+];

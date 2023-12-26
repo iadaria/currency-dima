@@ -4,6 +4,7 @@ import {CFXS} from './cfx';
 import {DOGE} from './doge';
 import {FIL} from './fil';
 import {FLOKIS} from './floki';
+import {ICPS} from './icp';
 
 export const DEALS: Deal[] = [
   //...ADAS,
@@ -15,4 +16,5 @@ export const DEALS: Deal[] = [
   //...LDOS,
   ...DOGE,
   ...FIL,
+  ...ICPS,
 ];
