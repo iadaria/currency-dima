@@ -16,6 +16,7 @@ export enum COIN {
   FIL = 'fil',
   ICP = 'icp',
   SUI = 'sui',
+  ONT = 'ont',
 }
 
 export enum STATE {
@@ -35,6 +36,7 @@ export const Rates: {[key: string]: number} = {
   [COIN.FIL]: 0,
   [COIN.ICP]: 0,
   [COIN.SUI]: 0,
+  [COIN.ONT]: 0,
 };
 
 export type Item = {

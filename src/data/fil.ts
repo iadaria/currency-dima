@@ -23,4 +23,15 @@ export const FIL: Deal[] = [
     comission: 1,
     Market: Market.Okx,
   },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.FIL,
+    count: 206,
+    date: new Date('2023-12-27'),
+    inUsdt: 1170,
+    perUnit: 5.68,
+    isBNBComission: false,
+    comission: 1,
+    Market: Market.Okx,
+  },
 ];

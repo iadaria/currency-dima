@@ -5,6 +5,7 @@ import {DOGE} from './doge';
 import {FIL} from './fil';
 import {FLOKIS} from './floki';
 import {ICPS} from './icp';
+import {ONTS} from './ont';
 import {SUIS} from './sui';
 
 export const DEALS: Deal[] = [
@@ -19,4 +20,5 @@ export const DEALS: Deal[] = [
   ...FIL,
   ...ICPS,
   ...SUIS,
+  ...ONTS,
 ];
