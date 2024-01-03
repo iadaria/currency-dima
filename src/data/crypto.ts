@@ -1,4 +1,5 @@
 import {Deal} from '../types/cypto';
+import { ATOMS } from './atom';
 import {CAKES} from './cake';
 import {CFXS} from './cfx';
 import {DOGE} from './doge';
@@ -21,4 +22,5 @@ export const DEALS: Deal[] = [
   ...ICPS,
   ...SUIS,
   ...ONTS,
+  ...ATOMS
 ];

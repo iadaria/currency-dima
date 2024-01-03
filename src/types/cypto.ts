@@ -17,6 +17,7 @@ export enum COIN {
   ICP = 'icp',
   SUI = 'sui',
   ONT = 'ont',
+  ATOM = 'atom'
 }
 
 export enum STATE {
@@ -26,6 +27,7 @@ export enum STATE {
 
 export const Rates: {[key: string]: number} = {
   //[COIN.BTC]: 0,
+  [COIN.ATOM]: 0,
   [COIN.CAKE]: 0,
   [COIN.CFX]: 0,
   [COIN.FLOKI]: 0,
