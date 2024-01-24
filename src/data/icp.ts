@@ -11,4 +11,14 @@ export const ICPS: Deal[] = [
     isBNBComission: false,
     Market: Market.Huobi,
   },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.ICP,
+    count: 161.29,
+    date: new Date('2024-01-24'),
+    inUsdt: 1700,
+    perUnit: 10.536,
+    isBNBComission: false,
+    Market: Market.Huobi,
+  },
 ];
