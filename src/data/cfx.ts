@@ -113,4 +113,22 @@ export const CFXS: Deal[] = [
     isBNBComission: false,
     Market: Market.Binance,
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.CFX,
+    count: 62533,
+    date: new Date('2024-01-25'),
+    inUsdt: 11032,
+    perUnit: 0.1764,
+    isBNBComission: true,
+  },
+  {
+    state: STATE.SOLD,
+    coin: COIN.CFX,
+    count: 12587,
+    date: new Date('2023-06-22'),
+    inUsdt: 2214,
+    perUnit: 0.1758,
+    isBNBComission: true,
+  },
 ];
