@@ -66,4 +66,15 @@ export const NEMS: Deal[] = [
   comission: 1,
   Market: Market.Okx,
 },
+{
+  state: STATE.SOLD,
+  coin: COIN.NEM,
+  count: (55602 + 1969),
+  date: new Date('2024-01-25'),
+  inUsdt: 0,
+  perUnit: 0.04048,
+  isBNBComission: false,
+  comission: 1,
+  Market: Market.Okx,
+},
 ];
