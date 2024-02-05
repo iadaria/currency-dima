@@ -13,7 +13,7 @@ export const APTS: Deal[] = [
     Market: Market.Okx,
   },
   {
-    state: STATE.SOLD,
+    state: STATE.BOUGHT,
     coin: COIN.APT,
     count: 222,
     date: new Date('2024-02-04'),
