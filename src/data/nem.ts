@@ -58,7 +58,7 @@ export const NEMS: Deal[] = [
 {
   state: STATE.SOLD,
   coin: COIN.NEM,
-  count: (79887 + 65345 + 50796),
+  count: (79887 + 65345 + 50796 + 34000),
   date: new Date('2024-02-04'),
   inUsdt: 2720,
   perUnit: 0.034,
@@ -69,7 +69,7 @@ export const NEMS: Deal[] = [
 {
   state: STATE.SOLD,
   coin: COIN.NEM,
-  count: (55602 + 1969),
+  count: (55602 + 1969 + 34000),
   date: new Date('2024-01-25'),
   inUsdt: 0,
   perUnit: 0.04048,
