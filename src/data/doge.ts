@@ -12,4 +12,15 @@ export const DOGE: Deal[] = [
     comission: 1,
     Market: Market.Okx,
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.DOGE,
+    count: 21695,
+    date: new Date('2024-02-04'),
+    inUsdt: 1693,
+    perUnit: 0.07808,
+    isBNBComission: false,
+    comission: 1,
+    Market: Market.Okx,
+  },
 ];

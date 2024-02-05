@@ -12,4 +12,15 @@ export const APTS: Deal[] = [
     comission: 1,
     Market: Market.Okx,
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.APT,
+    count: 222,
+    date: new Date('2024-02-04'),
+    inUsdt: 1981,
+    perUnit: 8.9247,
+    isBNBComission: false,
+    comission: 1,
+    Market: Market.Okx,
+  },
 ];

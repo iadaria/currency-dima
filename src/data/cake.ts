@@ -21,4 +21,14 @@ export const CAKES: Deal[] = [
     isBNBComission: false,
     Market: Market.Huobi
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.CAKE,
+    count: 828,
+    date: new Date('2024-02-04'),
+    inUsdt: 1355,
+    perUnit: 2.389,
+    isBNBComission: false,
+    Market: Market.Huobi
+  },
 ];

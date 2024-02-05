@@ -10,4 +10,22 @@ export const SUIS: Deal[] = [
     perUnit: 0.8506,
     isBNBComission: false,
   },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.SUI,
+    count: 3468,
+    date: new Date('2024-02-03'),
+    inUsdt: 5218,
+    perUnit: 1.5048,
+    isBNBComission: false,
+  },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.SUI,
+    count: 1685,
+    date: new Date('2024-02-04'),
+    inUsdt: 2528,
+    perUnit: 1.4995,
+    isBNBComission: false,
+  },
 ];
