@@ -4,12 +4,14 @@ import { ATOMS } from './atom';
 import { BONKS } from './bonk';
 import {CAKES} from './cake';
 import {CFXS} from './cfx';
+import { CKBS } from './ckb';
 import {DOGE} from './doge';
 import {FIL} from './fil';
 import {FLOKIS} from './floki';
 import {ICPS} from './icp';
 import { NEMS } from './nem';
 import {ONTS} from './ont';
+import { STXS } from './stx';
 import {SUIS} from './sui';
 import { TIAS } from './tia';
 
@@ -30,5 +32,7 @@ export const DEALS: Deal[] = [
   ...APTS,
   ...BONKS,
   ...NEMS,
-  ...TIAS
+  ...TIAS,
+  ...STXS,
+  ...CKBS
 ];
