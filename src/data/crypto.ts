@@ -13,7 +13,9 @@ import { NEMS } from './nem';
 import {ONTS} from './ont';
 import { STXS } from './stx';
 import {SUIS} from './sui';
+import { SUIS_2 } from './sui2';
 import { TIAS } from './tia';
+import { WLDS } from './wld';
 
 export const DEALS: Deal[] = [
   //...ADAS,
@@ -27,6 +29,7 @@ export const DEALS: Deal[] = [
   ...FIL,
   ...ICPS,
   ...SUIS,
+  ...SUIS_2,
   ...ONTS,
   ...ATOMS,
   ...APTS,
@@ -34,5 +37,6 @@ export const DEALS: Deal[] = [
   ...NEMS,
   ...TIAS,
   ...STXS,
-  ...CKBS
+  ...CKBS,
+  ...WLDS
 ];
