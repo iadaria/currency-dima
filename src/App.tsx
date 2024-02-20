@@ -89,7 +89,7 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         {/* <br /> */}
         <span>
           Зафиксили: {sign}
-          {outcome}$ {outcomeIn$ < 50 && `(Было БЫ: ${signWouldBe}${wouldBeOutcome$})$)`}
+          {outcomeIn$ > 50 ? outcome : calcFixed(coin)}$ {outcomeIn$ < 50 && `(Было БЫ: ${signWouldBe}${wouldBeOutcome$})$)`}
         </span>
         <br/>
         <span>
