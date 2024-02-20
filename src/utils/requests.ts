@@ -13,9 +13,11 @@ export const getPrice = async (symbols: string) => {
 };
 
 export const updateRates = async () => {
-  const coins = Object.keys(Rates).map((crypto) =>
-  `"${crypto}usdt"`.toUpperCase()
+  let coins = Object.keys(Rates).map((crypto) =>
+  `"${crypto.replace(/\d+/g, '')}usdt"`.toUpperCase()
   );
+  coins = Array.from( new Set( coins ) )
+  console.log(coins);
   const symbols = '[' + coins.join(',') + ']';
 
   setTimeout(() => {}, 5000);

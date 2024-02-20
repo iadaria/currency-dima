@@ -47,7 +47,7 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
   const coins = Object.values(COIN);
 
   const result = coins.map((coin, index) => {
-    const rate = prices[coin];
+    const rate = prices[coin.replace(/\d+/g, '')];
     const deals = DEALS.filter((deal) => deal.coin === coin);
     const dealsElement = deals
       .sort(sortByDate)

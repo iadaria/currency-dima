@@ -12,7 +12,7 @@ export function Fixed({item}: Props) {
   const {fixed, count, coin, soldDate, soldPerUnit, isBNBComission} = item;
   const [prices, setPrices] = useState(Rates);
 
-  const rate = prices[coin];
+  const rate = prices[coin.replace(/\d+/g, '')];
   const soldCost = calcSellingCost(count, soldPerUnit, isBNBComission);
   const planOutcome$ = round(count * rate); 
   if (!fixed) return null;
