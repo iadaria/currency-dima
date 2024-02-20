@@ -1,17 +1,20 @@
 import {DEALS} from './data/crypto';
 import {
   calcBuyingCost,
+  calcFixed,
   calcOutcome,
   calcSellingCost,
   calcSpent,
+  countOfBoughts,
   countOfCoin,
   round,
   roundN,
   sortByDate,
+  sumOfBoughts,
 } from './utils/digits';
 import {formattedDate} from './utils/date';
 import './App.css';
-import {COIN, Deal, Rates, STATE, Translate} from './types/cypto';
+import {COIN, Deal, Rates,Translate} from './types/cypto';
 import {useEffect, useState} from 'react';
 import {updateRates} from './utils/requests';
 
@@ -51,21 +54,23 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
       .map((deal, index) => <DealItem key={`item-${index}`} deal={deal} />);
 
     // solds
-    const solds = deals.filter((deal) => deal.state === STATE.SOLD);
-    const totalSolds = solds.reduce(
+    //const solds = deals.filter((deal) => deal.state === STATE.SOLD);
+    /* const totalSolds = solds.reduce(
       (sum, deal) =>
         sum + calcSellingCost(deal.count, deal.perUnit, deal.isBNBComission),
       0
-    );
-    const countSolds = solds.reduce((sum, deal) => sum + deal.count, 0);
+    ); */
+    //const countSolds = solds.reduce((sum, deal) => sum + deal.count, 0);
     // outcome
     const outcome = round(calcOutcome(coin));
     const outcomeIn$ = round(countOfCoin(coin) * rate);
     const sign = outcome > 0 ? '+' : outcome < 0 ? '' : '';
-    const color = outcome > 0 ? 'green' : outcome < 0 ? 'red' : '';
+    //const color = outcome > 0 ? 'green' : outcome < 0 ? 'red' : '';
     const spent$ = round(calcSpent(coin));
     const planOutcome$ = round(outcomeIn$ - spent$);
     const s = planOutcome$ > 0 ? '+' : '';
+
+    const wouldBeOutcome$ = round(countOfBoughts(coin) * rate - sumOfBoughts(coin));
 
     // show
     return (
@@ -80,7 +85,7 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         {/* <br /> */}
         <span>
           Зафиксили: {sign}
-          {outcome}$
+          {calcFixed(coin)}$ (Было БЫ: {wouldBeOutcome$})$
           {outcomeIn$ > 50 &&
             `(Вложено: ${spent$}$, заработок: ${s}${planOutcome$}$)`}
         </span>

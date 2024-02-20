@@ -12,4 +12,15 @@ export const BONKS: Deal[] = [
     comission: 1,
     Market: Market.Okx,
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.BONK,
+    count: 91635335,
+    date: new Date('2024-02-14'),
+    inUsdt: 1247,
+    perUnit: 0.00001361,
+    isBNBComission: false,
+    comission: 1,
+    Market: Market.Okx,
+  },
 ];

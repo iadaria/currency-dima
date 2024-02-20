@@ -31,4 +31,14 @@ export const TIAS: Deal[] = [
     isBNBComission: false,
     Market: Market.Huobi,
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.TIA,
+    count: 444,
+    date: new Date('2024-02-19'),
+    inUsdt: 5302,
+    perUnit: 19.0642,
+    isBNBComission: false,
+    Market: Market.Huobi,
+  },
 ];

@@ -23,4 +23,15 @@ export const ATOMS: Deal[] = [
   comission: 1,
   Market: Market.Binance,
 }, 
+{
+  state: STATE.SOLD,
+  coin: COIN.ATOM,
+  count: 180,
+  date: new Date('2024-02-14'),
+  inUsdt: 834,
+  perUnit: 10.23,
+  isBNBComission: false,
+  comission: 1,
+  Market: Market.Binance,
+}, 
 ];

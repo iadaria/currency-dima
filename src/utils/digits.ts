@@ -1,5 +1,5 @@
 import {DEALS} from '../data/crypto';
-import {COIN, Deal, STATE} from '../types/cypto';
+import {COIN, Deal, Rates, STATE} from '../types/cypto';
 
 const USDT_COMISSION = 0.1 / 100;
 const BNB_COMISSION = 0.075 / 100;
@@ -70,7 +70,7 @@ export const soldsByCoin = (coin: COIN) =>
 export const equalDeals = (d1: Deal, d2: Deal) =>
   d1.coin === d2.coin && d1.count === d2.count && d1.date === d2.date;
 
-export const newBoughtsByCoin = (coin: COIN) => {
+export const newBoughtsByCoin = (coin: COIN): Deal[][] => {
   const newSales: Deal[] = [];
   const newPurchases: Deal[] = [];
 
@@ -88,7 +88,8 @@ export const newBoughtsByCoin = (coin: COIN) => {
     .filter((sold) => !sold.fixed)
     .forEach((sold, index) => {
       let sale: Deal | null = sold;
-      boughts.filter((buy) => !buy.fixed)
+      boughts
+        .filter((buy) => !buy.fixed)
         .filter(uniq) // фильтруем то, что уже отработали с предыдущим sale
         .forEach((buy) => {
           if (!sale) {
@@ -136,7 +137,9 @@ export const calcOutcome = (coin: COIN) => {
       (buy) => buy.count === sold.count && buy.date <= sold.date
     );
     if (!buy) {
-      throw Error('Не найдена, соответствующая продаже, покупка ' + JSON.stringify(sold),);
+      throw Error(
+        'Не найдена, соответствующая продаже, покупка ' + JSON.stringify(sold)
+      );
     }
     return (
       sum +
@@ -159,7 +162,28 @@ export const calcSpent = (coin: COIN) => {
     if (sold) {
       return sum;
     }
-   
+
     return sum + calcBuyingCost(buy.count, buy.perUnit, buy.isBNBComission);
   }, 0);
 };
+
+export const calcFixed = (coin: COIN): number => {
+  const boughts = boughtsByCoin(coin);
+  const solds = soldsByCoin(coin);
+  const outcomeOfBoughts = boughts.reduce(
+    (sum, buy) => sum + buy.count * buy.perUnit,
+    0
+  );
+  const outcomeOfSolds = solds.reduce(
+    (sum, sold) => sum + sold.count * sold.perUnit,
+    0
+  );
+
+  return round(outcomeOfSolds - outcomeOfBoughts);
+};
+
+export const sumOfBoughts = (coin: COIN): number =>
+  boughtsByCoin(coin).reduce((sum, buy) => sum + buy.count * buy.perUnit, 0);
+
+export const countOfBoughts = (coin: COIN) =>
+  boughtsByCoin(coin).reduce((sum, buy) => sum + buy.count, 0);

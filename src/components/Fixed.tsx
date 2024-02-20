@@ -1,5 +1,6 @@
 
-import { Item } from '../types/cypto';
+import { useState } from 'react';
+import { Item, Rates } from '../types/cypto';
 import { formattedDate } from '../utils/date';
 import {calcSellingCost, round} from '../utils/digits';
 
@@ -9,8 +10,11 @@ interface Props {
 
 export function Fixed({item}: Props) {
   const {fixed, count, coin, soldDate, soldPerUnit, isBNBComission} = item;
-  const soldCost = calcSellingCost(count, soldPerUnit, isBNBComission);
+  const [prices, setPrices] = useState(Rates);
 
+  const rate = prices[coin];
+  const soldCost = calcSellingCost(count, soldPerUnit, isBNBComission);
+  const planOutcome$ = round(count * rate); 
   if (!fixed) return null;
 
   const soldDateFormated = formattedDate(soldDate);
@@ -19,7 +23,7 @@ export function Fixed({item}: Props) {
       <br />
       <span className="date">Продажа {soldDateFormated}: </span>
       <span>
-        {count} {coin} * {round(soldPerUnit)} usdt = {soldCost} usdt
+        {count} {coin} * {round(soldPerUnit)} usdt = {soldCost} usdt (Было бы: {planOutcome$})
       </span>
     </>
   );
