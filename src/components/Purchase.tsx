@@ -1,6 +1,6 @@
 import { Item } from '../types/cypto';
 import {formattedDate} from '../utils/date';
-import {calcBuyingCost, round} from '../utils/digits';
+import {calcBuyingCost, round, roundN} from '../utils/digits';
 
 interface Props {
   item: Item;
@@ -15,7 +15,7 @@ export function Purchase({item}: Props) {
     <>
       <span className="date">Покупка {boughtDateFormated}: </span>
       <span>
-        {count} {coin} * {round(boughtPerUnit)} usdt = {boughtCost} usdt
+        {count} {coin} * {roundN(boughtPerUnit, 4)} usdt = {boughtCost} usdt
       </span>
     </>
   );

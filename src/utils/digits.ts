@@ -49,7 +49,7 @@ export const dealsGroupedByCoin = () => {
 export const dealsByCoin = (coin: COIN) =>
   DEALS.filter((deal) => deal.coin === coin);
 
-export const countOfCoin = (coin: COIN) =>
+export const countOfCoin = (coin: COIN): number =>
   dealsByCoin(coin).reduce(
     (sum, deal) =>
       deal.state === STATE.BOUGHT ? sum + deal.count : sum - deal.count,

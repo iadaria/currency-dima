@@ -65,13 +65,17 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
     const outcome = round(calcOutcome(coin));
     const outcomeIn$ = round(countOfCoin(coin) * rate);
     const sign = outcome > 0 ? '+' : outcome < 0 ? '' : '';
-    //const color = outcome > 0 ? 'green' : outcome < 0 ? 'red' : '';
+    //const color = outcome > 0 ? 'green' : outcome <; 0 ? 'red' : '';
     const spent$ = round(calcSpent(coin));
     const planOutcome$ = round(outcomeIn$ - spent$);
     const s = planOutcome$ > 0 ? '+' : '';
 
     const wouldBeOutcome$ = round(countOfBoughts(coin) * rate - sumOfBoughts(coin));
-
+    const signWouldBe = wouldBeOutcome$ > 0 ? '+': '';
+    const wrap = () => {
+      if (outcomeIn$ > 50) return <br></br>;
+      return null;
+    };
     // show
     return (
       <div key={`item-${index}`} className="item">
@@ -85,15 +89,15 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         {/* <br /> */}
         <span>
           Зафиксили: {sign}
-          {calcFixed(coin)}$ (Было БЫ: {wouldBeOutcome$})$
+          {outcome}$ (Было БЫ: {signWouldBe}{wouldBeOutcome$})$
+        </span>
+        <br/>
+        <span>
           {outcomeIn$ > 50 &&
             `(Вложено: ${spent$}$, заработок: ${s}${planOutcome$}$)`}
+          {wrap()}
+          Осталось {coin}: {round(countOfCoin(coin))} шт. (~ {outcomeIn$} $)
         </span>
-        <br />
-        <span>
-          Осталось {coin}: {countOfCoin(coin)} шт. (~ {outcomeIn$} $)
-        </span>
-        <br />
         {/* <p>
           04.08.23 Продажа cfx на 20 usdt и покупка 258 trx для комиссии на
           перевод tron
