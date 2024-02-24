@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/currency-dima/static/css/main.35bc6f04.css",
-    "main.js": "/currency-dima/static/js/main.ce0db0b8.js",
+    "main.js": "/currency-dima/static/js/main.c9721aa1.js",
     "static/js/787.6594ee7d.chunk.js": "/currency-dima/static/js/787.6594ee7d.chunk.js",
     "index.html": "/currency-dima/index.html",
     "main.35bc6f04.css.map": "/currency-dima/static/css/main.35bc6f04.css.map",
-    "main.ce0db0b8.js.map": "/currency-dima/static/js/main.ce0db0b8.js.map",
+    "main.c9721aa1.js.map": "/currency-dima/static/js/main.c9721aa1.js.map",
     "787.6594ee7d.chunk.js.map": "/currency-dima/static/js/787.6594ee7d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.35bc6f04.css",
-    "static/js/main.ce0db0b8.js"
+    "static/js/main.c9721aa1.js"
   ]
 }
