@@ -12,4 +12,15 @@ export const STXS: Deal[] = [
         comission: 1,
         Market: Market.Binance,
       },
+      {
+        state: STATE.SOLD,
+        coin: COIN.STX,
+        count: 399,
+        date: new Date('2024-02-24'),
+        inUsdt: 1000,
+        perUnit: 2.5045,
+        isBNBComission: false,
+        comission: 1,
+        Market: Market.Binance,
+      },
     ];

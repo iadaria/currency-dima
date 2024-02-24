@@ -10,4 +10,22 @@ export const WLDS: Deal[] = [
     perUnit: 7.780,
     isBNBComission: false,
   },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.WLD,
+    count: 355.3,
+    date: new Date('2024-02-23'),
+    inUsdt: 3000,
+    perUnit: 8.445,
+    isBNBComission: false,
+  },
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.WLD,
+    count: 72.2,
+    date: new Date('2024-02-23'),
+    inUsdt: 619,
+    perUnit: 8.565,
+    isBNBComission: false,
+  },
 ];
