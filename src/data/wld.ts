@@ -36,4 +36,5 @@ export const WLDS: Deal[] = [
     inUsdt: 889,
     perUnit: 9.156,
     isBNBComission: false,
+  }
 ];
