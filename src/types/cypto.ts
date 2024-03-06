@@ -8,7 +8,7 @@ export enum COIN {
   //ADA = 'ada',
   //LDO = 'ldo',
   //TRX = 'trx',
-  //BTC = 'btc',
+  BTC = 'btc',
   CAKE = 'cake',
   CFX = 'cfx',
   FLOKI = 'floki',
@@ -34,7 +34,7 @@ export enum STATE {
 }
 
 export const Rates: {[key: string]: number} = {
-  //[COIN.BTC]: 0,
+  [COIN.BTC]: 0,
   [COIN.ATOM]: 0,
   [COIN.CAKE]: 0,
   [COIN.CFX]: 0,
