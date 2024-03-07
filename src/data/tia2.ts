@@ -11,4 +11,14 @@ export const TIAS_2: Deal[] = [
     isBNBComission: false,
     Market: Market.Binance,
   },
+  {
+    state: STATE.SOLD,
+    coin: COIN.TIA2,
+    count: 247.8,
+    date: new Date('2024-03-07'),
+    inUsdt: 11127,
+    perUnit: 16.14,
+    isBNBComission: false,
+    Market: Market.Binance,
+  },
 ];

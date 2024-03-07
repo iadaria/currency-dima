@@ -6,6 +6,7 @@ import { BTCS } from './btc';
 import {CAKES} from './cake';
 import {CFXS} from './cfx';
 import { CKBS } from './ckb';
+import { CKBS_2 } from './ckb2';
 import {DOGE} from './doge';
 import {FIL} from './fil';
 import {FLOKIS} from './floki';
@@ -41,5 +42,6 @@ export const DEALS: Deal[] = [
   ...TIAS_2,
   ...STXS,
   ...CKBS,
+  ...CKBS_2,
   ...WLDS
 ];
