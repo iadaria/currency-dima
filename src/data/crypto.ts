@@ -16,6 +16,7 @@ import { STXS } from './stx';
 import {SUIS} from './sui';
 import { SUIS_2 } from './sui2';
 import { TIAS } from './tia';
+import { TIAS_2 } from './tia2';
 import { WLDS } from './wld';
 
 export const DEALS: Deal[] = [
@@ -37,6 +38,7 @@ export const DEALS: Deal[] = [
   ...BONKS,
   ...NEMS,
   ...TIAS,
+  ...TIAS_2,
   ...STXS,
   ...CKBS,
   ...WLDS
