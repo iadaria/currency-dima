@@ -1,7 +1,7 @@
 import {COIN, Deal, STATE} from '../types/cypto';
 
 export const LDOS: Deal[] = [
-  /*   {
+  {
     state: STATE.SOLD,
     coin: COIN.LDO,
     count: 3218 + 185,
@@ -27,5 +27,5 @@ export const LDOS: Deal[] = [
     inUsdt: 0,
     perUnit: 2.216,
     isBNBComission: false,
-  }, */
+  },
 ];

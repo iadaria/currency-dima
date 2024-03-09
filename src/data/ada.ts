@@ -1,7 +1,7 @@
 import {COIN, Deal, STATE} from '../types/cypto';
 import {round} from '../utils/digits';
 
-/* export const ADAS: Deal[] = [
+export const ADAS: Deal[] = [
   {
     state: STATE.BOUGHT,
     coin: COIN?.ADA,
@@ -32,4 +32,4 @@ import {round} from '../utils/digits';
     isBNBComission: false,
     comission: 1.451,
   },
-]; */
+];

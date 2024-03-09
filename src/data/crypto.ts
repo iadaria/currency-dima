@@ -1,4 +1,5 @@
 import {Deal} from '../types/cypto';
+import { ADAS } from './ada';
 import { APTS } from './apt';
 import { ATOMS } from './atom';
 import { BONKS } from './bonk';
@@ -11,6 +12,7 @@ import {DOGE} from './doge';
 import {FIL} from './fil';
 import {FLOKIS} from './floki';
 import {ICPS} from './icp';
+import { LDOS } from './ldo';
 import { NEMS } from './nem';
 import {ONTS} from './ont';
 import { STXS } from './stx';
@@ -21,13 +23,13 @@ import { TIAS_2 } from './tia2';
 import { WLDS } from './wld';
 
 export const DEALS: Deal[] = [
-  //...ADAS,
+  ...ADAS,
   //...TRXS,
   ...BTCS,
   ...CAKES,
   ...CFXS,
   ...FLOKIS,
-  //...LDOS,
+  ...LDOS,
   ...DOGE,
   ...FIL,
   ...ICPS,
