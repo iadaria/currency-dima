@@ -20,11 +20,12 @@ import {SUIS} from './sui';
 import { SUIS_2 } from './sui2';
 import { TIAS } from './tia';
 import { TIAS_2 } from './tia2';
+import { TRXS } from './trx';
 import { WLDS } from './wld';
 
 export const DEALS: Deal[] = [
   ...ADAS,
-  //...TRXS,
+  ...TRXS,
   ...BTCS,
   ...CAKES,
   ...CFXS,
