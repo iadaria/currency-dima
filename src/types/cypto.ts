@@ -27,7 +27,8 @@ export enum COIN {
   STX = 'stx',
   CKB = 'ckb',
   CKB2 = 'ckb2',
-  WLD = 'wld'
+  WLD = 'wld',
+  WIF = 'wif'
 }
 
 export enum STATE {
@@ -59,6 +60,7 @@ export const Rates: {[key: string]: number} = {
   [COIN.SUI2]: 0,
   [COIN.TIA2]: 0,
   [COIN.CKB2]: 0,
+  [COIN.WIF]: 0,
 };
 
 export type Item = {
