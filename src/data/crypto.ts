@@ -2,6 +2,7 @@ import {Deal} from '../types/cypto';
 import { ADAS } from './ada';
 import { APTS } from './apt';
 import { ATOMS } from './atom';
+import { BOMES } from './bome';
 import { BONKS } from './bonk';
 import { BTCS } from './btc';
 import {CAKES} from './cake';
@@ -49,4 +50,5 @@ export const DEALS: Deal[] = [
   ...CKBS_2,
   ...WLDS,
   ...WIFS,
+  ...BOMES,
 ];

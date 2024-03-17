@@ -12,6 +12,17 @@ export const BTCS: Deal[] = [
   comission: 0,
   Market: Market.Binance,
 },
+{
+  state: STATE.BOUGHT,
+  coin: COIN.BTC,
+  count: 0.01568,
+  date: new Date('2023-03-06'),
+  inUsdt: 1120,
+  perUnit: 71436,
+  isBNBComission: false,
+  comission: 0,
+  Market: Market.Binance,
+},
 /*{
   state: STATE.SOLD,
   coin: COIN.BTC,
