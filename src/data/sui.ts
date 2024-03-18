@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const SUIS: Deal[] = [
-  {
+/*   {
     state: STATE.BOUGHT,
     coin: COIN.SUI,
     count: 1175,
@@ -36,5 +36,5 @@ export const SUIS: Deal[] = [
     inUsdt: 12092,
     perUnit: 1.9125,
     isBNBComission: false,
-  },
+  }, */
 ];

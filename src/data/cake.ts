@@ -1,7 +1,7 @@
 import { COIN, Deal, Market, STATE } from "../types/cypto";
 
 export const CAKES: Deal[] = [
-  {
+/*   {
     state: STATE.BOUGHT,
     coin: COIN.CAKE,
     count: 452,
@@ -30,5 +30,5 @@ export const CAKES: Deal[] = [
     perUnit: 2.389,
     isBNBComission: false,
     Market: Market.Huobi
-  },
+  }, */
 ];

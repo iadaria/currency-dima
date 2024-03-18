@@ -22,7 +22,7 @@ export const NEMS: Deal[] = [
   comission: 1,
   Market: Market.Okx,
 }, */
-{
+/* {
   state: STATE.BOUGHT,
   coin: COIN.NEM,
   count: 264360,
@@ -76,5 +76,5 @@ export const NEMS: Deal[] = [
   isBNBComission: false,
   comission: 1,
   Market: Market.Okx,
-},
+}, */
 ];

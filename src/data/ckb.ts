@@ -1,7 +1,7 @@
 import { COIN, Deal, Market, STATE } from "../types/cypto";
 
 export const CKBS: Deal[] = [
-    {
+/*     {
         state: STATE.BOUGHT,
         coin: COIN.CKB,
         count: 535672,
@@ -22,5 +22,5 @@ export const CKBS: Deal[] = [
         isBNBComission: false,
         comission: 1,
         Market: Market.Binance,
-      },
+      }, */
     ];

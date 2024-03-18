@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const TIAS: Deal[] = [
-  {
+/*   {
     state: STATE.BOUGHT,
     coin: COIN.TIA,
     count: 106,
@@ -40,5 +40,5 @@ export const TIAS: Deal[] = [
     perUnit: 19.0642,
     isBNBComission: false,
     Market: Market.Huobi,
-  },
+  }, */
 ];

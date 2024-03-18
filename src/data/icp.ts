@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const ICPS: Deal[] = [
-  {
+/*   {
     state: STATE.BOUGHT,
     coin: COIN.ICP,
     count: 120,
@@ -40,5 +40,5 @@ export const ICPS: Deal[] = [
     perUnit: 13.543,
     isBNBComission: false,
     Market: Market.Huobi,
-  },
+  }, */
 ];

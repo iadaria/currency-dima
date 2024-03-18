@@ -1,7 +1,7 @@
 import { COIN, Deal, Market, STATE } from "../types/cypto";
 
 export const CFXS: Deal[] = [
-  {
+  /* {
     state: STATE.BOUGHT,
     coin: COIN.CFX,
     count: 21793,
@@ -130,5 +130,5 @@ export const CFXS: Deal[] = [
     inUsdt: 2214,
     perUnit: 0.1758,
     isBNBComission: true,
-  },
+  }, */
 ];

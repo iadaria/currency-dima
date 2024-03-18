@@ -13,7 +13,7 @@ export const WLDS: Deal[] = [
   {
     state: STATE.BOUGHT,
     coin: COIN.WLD,
-    count: 355.3,
+    count: 355.3 - 111,
     date: new Date('2024-02-23'),
     inUsdt: 3000,
     perUnit: 8.445,
@@ -22,12 +22,21 @@ export const WLDS: Deal[] = [
   {
     state: STATE.BOUGHT,
     coin: COIN.WLD,
-    count: 72.2,
+    count: 72.2 - 15.9,
     date: new Date('2024-02-23'),
     inUsdt: 619,
     perUnit: 8.565,
     isBNBComission: false,
   },
+/*   {
+    state: STATE.SOLD,
+    coin: COIN.WLD,
+    count: 111,
+    date: new Date('2024-03-17'),
+    inUsdt: 1000,
+    perUnit: 9.072,
+    isBNBComission: false,
+  }, */
 /* {
     state: STATE.BOUGHT,
     coin: COIN.WLD,

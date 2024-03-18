@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const FIL: Deal[] = [
-  {
+/*   {
     state: STATE.BOUGHT,
     coin: COIN.FIL,
     count: 348,
@@ -44,5 +44,5 @@ export const FIL: Deal[] = [
     isBNBComission: false,
     comission: 1,
     Market: Market.Okx,
-  },
+  }, */
 ];

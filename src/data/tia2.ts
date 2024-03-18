@@ -3,7 +3,7 @@ import {COIN, Deal, Market, STATE} from '../types/cypto';
 export const TIAS_2: Deal[] = [
   {
     state: STATE.BOUGHT,
-    coin: COIN.TIA2,
+    coin: COIN.TIA,
     count: 162.4,
     date: new Date('2024-03-07'),
     inUsdt: 11127,

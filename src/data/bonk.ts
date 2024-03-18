@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const BONKS: Deal[] = [
-  {
+/*   {
     state: STATE.BOUGHT,
     coin: COIN.BONK,
     count: 92331335,
@@ -22,5 +22,5 @@ export const BONKS: Deal[] = [
     isBNBComission: false,
     comission: 1,
     Market: Market.Okx,
-  },
+  }, */
 ];

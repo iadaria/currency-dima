@@ -1,7 +1,7 @@
 import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const APTS: Deal[] = [
-  {
+  /* {
     state: STATE.BOUGHT,
     coin: COIN.APT,
     count: 108.34,
@@ -44,5 +44,5 @@ export const APTS: Deal[] = [
     isBNBComission: false,
     comission: 1,
     Market: Market.Binance,
-  },
+  }, */
 ];
