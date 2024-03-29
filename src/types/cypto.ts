@@ -26,10 +26,13 @@ export enum COIN {
   TIA = 'tia',
   STX = 'stx',
   BTC = 'btc',
-  CKB = 'ckb',
+  //CKB = 'ckb',
   WLD = 'wld',
   WIF = 'wif',
-  BOME = 'bome'
+  BOME = 'bome',
+  APE = 'ape',
+  //MANIA = 'mania',
+  //TRUMP = 'trump'
 }
 
 export enum STATE {
@@ -60,9 +63,12 @@ export const Rates: {[key: string]: number} = {
   [COIN.WLD]: 0,
   [COIN.SUI]: 0,
   [COIN.TIA]: 0,
-  [COIN.CKB]: 0,
+  //[COIN.CKB]: 0,
   [COIN.WIF]: 0,
   [COIN.BOME]: 0,
+  [COIN.APE]: 0,
+  //[COIN.MANIA]: 0,
+  //[COIN.TRUMP]: 0,
 };
 
 export type Item = {

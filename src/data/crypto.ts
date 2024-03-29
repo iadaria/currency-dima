@@ -1,10 +1,11 @@
 import {Deal} from '../types/cypto';
+import { APES } from './ape';
 import { BOMES } from './bome';
-import { BTCS } from './btc';
-import { CKBS_2 } from './ckb2';
+import { MANIAS } from './mania';
 import { STXS } from './stx';
 import { SUIS_2 } from './sui2';
 import { TIAS_2 } from './tia2';
+import { TRUMPS } from './trumb';
 import { WIFS } from './wif';
 import { WLDS } from './wld';
 
@@ -13,8 +14,11 @@ export const DEALS: Deal[] = [
   ...TIAS_2,
   ...STXS,
   //...BTCS,
-  ...CKBS_2,
+  //...CKBS_2,
   ...WLDS,
   ...WIFS,
   ...BOMES,
+  ...APES,
+  //...MANIAS,
+  //...TRUMPS
 ];

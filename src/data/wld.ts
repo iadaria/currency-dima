@@ -1,4 +1,4 @@
-import {COIN, Deal, Market, STATE} from '../types/cypto';
+import {COIN, Deal, STATE} from '../types/cypto';
 
 export const WLDS: Deal[] = [
   {
