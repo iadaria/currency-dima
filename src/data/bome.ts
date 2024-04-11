@@ -34,4 +34,15 @@ export const BOMES: Deal[] = [
   comission: 1,
   Market: Market.Binance,
 },
+{
+  state: STATE.BOUGHT,
+  coin: COIN.BOME,
+  count: 208035 - 1000,
+  date: new Date('2024-04-01'),
+  inUsdt: 3203,
+  perUnit: 0.0154,
+  isBNBComission: false,
+  comission: 1,
+  Market: Market.Binance,
+},
 ];
