@@ -14,7 +14,7 @@ import {
 } from './utils/digits';
 import {formattedDate} from './utils/date';
 import './App.css';
-import {COIN, Deal, Rates,Translate} from './types/cypto';
+import {COIN, Deal, Rates, Translate} from './types/cypto';
 import {useEffect, useState} from 'react';
 import {updateRates} from './utils/requests';
 
@@ -70,8 +70,10 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
     const planOutcome$ = round(outcomeIn$ - spent$);
     const s = planOutcome$ > 0 ? '+' : '';
 
-    const wouldBeOutcome$ = round(countOfBoughts(coin) * rate - sumOfBoughts(coin));
-    const signWouldBe = wouldBeOutcome$ > 0 ? '+': '';
+    const wouldBeOutcome$ = round(
+      countOfBoughts(coin) * rate - sumOfBoughts(coin)
+    );
+    const signWouldBe = wouldBeOutcome$ > 0 ? '+' : '';
     const wrap = () => {
       if (outcomeIn$ > 50) return <br></br>;
       return null;
@@ -89,9 +91,10 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         {/* <br /> */}
         <span>
           Зафиксили: {sign}
-          {outcomeIn$ > 50 ? outcome : calcFixed(coin)}$ {outcomeIn$ < 50 && `(Было БЫ: ${signWouldBe}${wouldBeOutcome$}$)`}
+          {outcomeIn$ > 50 ? outcome : calcFixed(coin)}${' '}
+          {outcomeIn$ < 50 && `(Было БЫ: ${signWouldBe}${wouldBeOutcome$}$)`}
         </span>
-        <br/>
+        <br />
         <span>
           {outcomeIn$ > 50 &&
             `(Вложено: ${spent$}$, заработок: ${s}${planOutcome$}$)`}
@@ -104,8 +107,16 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
         </p> */}
         <p>
           Покупка wNot:
+          <br />
           1645$ / 183 420 796 = 0.0*(5)8968
+          <br />
           1153$ / 127 284 387 = 0.0*(5)9058
+        </p>
+
+        <p>
+          Покупка PAAL:
+          <br />
+          0.38681 * {4807 + 242} = {(4807 + 242) * 0.38681}
         </p>
       </div>
     );

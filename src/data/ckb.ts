@@ -1,7 +1,18 @@
-import { COIN, Deal, Market, STATE } from "../types/cypto";
+import {COIN, Deal, Market, STATE} from '../types/cypto';
 
 export const CKBS: Deal[] = [
-/*     {
+  {
+    state: STATE.BOUGHT,
+    coin: COIN.CKB,
+    count: 88763,
+    date: new Date('2024-04-21'),
+    inUsdt: 1913,
+    perUnit: 0.02156,
+    isBNBComission: false,
+    comission: 1,
+    Market: Market.Binance,
+  },
+  /*     {
         state: STATE.BOUGHT,
         coin: COIN.CKB,
         count: 535672,
@@ -23,4 +34,4 @@ export const CKBS: Deal[] = [
         comission: 1,
         Market: Market.Binance,
       }, */
-    ];
+];
