@@ -105,25 +105,30 @@ const DealsByCoin = ({prices}: DealsByCoinProps) => {
           04.08.23 Продажа cfx на 20 usdt и покупка 258 trx для комиссии на
           перевод tron
         </p> */}
-        <p>
-          Покупка wNot:
-          <br />
-          1645$ / 183 420 796 = 0.0*(5)8968
-          <br />
-          1153$ / 127 284 387 = 0.0*(5)9058
-        </p>
-
-        <p>
-          Покупка PAAL:
-          <br />
-          0.38681 * {4807 + 242} = {(4807 + 242) * 0.38681}
-        </p>
       </div>
     );
   });
 
   return <>{result}</>;
 };
+
+const Info = () => (
+  <>
+    <p>
+      Покупка wNot:
+      <br />
+      1645$ / 183 420 796 = 0.0*(5)8968
+      <br />
+      1153$ / 127 284 387 = 0.0*(5)9058
+    </p>
+
+    <p>
+      Покупка PAAL:
+      <br />
+      0.38681 * {4807 + 242} = {(4807 + 242) * 0.38681}
+    </p>
+  </>
+);
 
 function App() {
   const [prices, setPrices] = useState(Rates);
@@ -141,6 +146,7 @@ function App() {
   return (
     <div className="App">
       <DealsByCoin prices={prices} />
+      <Info />
     </div>
   );
 }
